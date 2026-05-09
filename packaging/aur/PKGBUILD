@@ -1,0 +1,25 @@
+# Maintainer: Mukunda Katta <mukunda.vjcs6@gmail.com>
+pkgname=python-bedrock-ops
+_pyname=bedrock-ops
+_pymodule=bedrock_ops
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="Production-grade boto3 toolkit for AWS Bedrock"
+arch=('any')
+url="https://github.com/MukundaKatta/bedrock-ops"
+license=('Apache-2.0')
+depends=('python>=3.10' 'python-boto3' 'python-botocore')
+makedepends=('python-build' 'python-installer' 'uv')
+checkdepends=('python-pytest')
+source=("$_pyname-$pkgver.tar.gz::https://github.com/MukundaKatta/$_pyname/releases/download/v$pkgver/$_pymodule-$pkgver.tar.gz")
+sha256sums=('0d3ee106ddc6335fd72faa3c0543173aa4f16d1d0c34606df73a5d3dfceb3046')
+
+build() {
+  cd "$_pymodule-$pkgver"
+  python -m build --wheel --no-isolation
+}
+
+package() {
+  cd "$_pymodule-$pkgver"
+  python -m installer --destdir="$pkgdir" dist/*.whl
+}

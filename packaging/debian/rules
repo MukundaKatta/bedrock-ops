@@ -1,0 +1,6 @@
+#!/usr/bin/make -f
+
+export PYBUILD_NAME=bedrock-ops
+
+%:
+	dh $@ --with python3 --buildsystem=pybuild
