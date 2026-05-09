@@ -1,0 +1,37 @@
+To: admin@pypi.org
+Subject: Request to lift "Too many new projects" cap on my account
+
+Hi PyPI admins,
+
+I'm hitting "429 Too many new projects created" repeatedly when trying to
+publish three new packages I authored:
+
+  - bedrock-ops    (Apache-2.0)  https://github.com/MukundaKatta/bedrock-ops
+  - embspec        (Apache-2.0)  https://github.com/MukundaKatta/embspec
+  - agent-budget   (Apache-2.0)  https://github.com/MukundaKatta/agent-budget
+
+Each is a distinct, focused Python library:
+  - bedrock-ops:   production-grade boto3 toolkit for AWS Bedrock
+  - embspec:       embedding pipeline ops and drift detection for RAG
+  - agent-budget:  retry/budget primitive for LLM and agent calls
+
+All three have:
+  - public source repos with full READMEs
+  - test suites (49, 32, and 21 unit tests respectively)
+  - CI workflows on Python 3.10-3.13
+  - tagged v0.1.0 GitHub Releases with sdists + wheels attached
+  - conda-forge recipe PRs already filed (#33281, #33282, #33283)
+
+These are not typo-squats, not derivatives, and not bulk namespace
+registration. I tried publishing all three within an hour, which seems to
+have triggered the "too many new projects" cap. The cap has not cleared
+after ~12 hours of automated retries.
+
+Could you lift it on my account so the three uploads can complete?
+
+Thanks,
+Mukunda Katta
+mukunda.vjcs6@gmail.com
+
+(NOTE: this file is a draft. Edit your PyPI handle into the message before
+sending.)
