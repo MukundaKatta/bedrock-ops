@@ -1,33 +1,28 @@
 To: admin@pypi.org
-Subject: Request to lift "Too many new projects" cap on my account
+Subject: Request to lift "Too many new projects" cap (2 of 3 packages already published)
 
 Hi PyPI admins,
 
-I'm hitting "429 Too many new projects created" repeatedly when trying to
-publish three new packages I authored:
+The "429 Too many new projects created" cap on my account has partially
+cleared — two of three packages published successfully today after
+~36 hours of capped retries:
 
-  - bedrock-ops    (Apache-2.0)  https://github.com/MukundaKatta/bedrock-ops
-  - embspec        (Apache-2.0)  https://github.com/MukundaKatta/embspec
-  - agent-budget   (Apache-2.0)  https://github.com/MukundaKatta/agent-budget
+  - bedrock-ops    LIVE  https://pypi.org/project/bedrock-ops/0.1.0/
+  - embspec        LIVE  https://pypi.org/project/embspec/0.1.0/
+  - agent-budget   STILL CAPPED  (HTTP 429 on every retry)
 
-Each is a distinct, focused Python library:
-  - bedrock-ops:   production-grade boto3 toolkit for AWS Bedrock
-  - embspec:       embedding pipeline ops and drift detection for RAG
-  - agent-budget:  retry/budget primitive for LLM and agent calls
+Could you bump the cap one more notch so agent-budget can publish too?
 
-All three have:
-  - public source repos with full READMEs
-  - test suites (49, 32, and 21 unit tests respectively)
-  - CI workflows on Python 3.10-3.13
-  - tagged v0.1.0 GitHub Releases with sdists + wheels attached
-  - conda-forge recipe PRs already filed (#33281, #33282, #33283)
+About the third package:
+  - agent-budget — retry/budget primitive for LLM/agent calls (Apache-2.0)
+  - Repo: https://github.com/MukundaKatta/agent-budget
+  - 21 unit tests, 98% coverage, zero runtime deps
+  - Tagged v0.1.0 GitHub Release with sdist + wheel
+  - Conda-forge recipe PR already filed: conda-forge/staged-recipes#33283
 
-These are not typo-squats, not derivatives, and not bulk namespace
-registration. I tried publishing all three within an hour, which seems to
-have triggered the "too many new projects" cap. The cap has not cleared
-after ~12 hours of automated retries.
-
-Could you lift it on my account so the three uploads can complete?
+This is a legitimate sibling library to the two already-published packages
+above, not a typo-squat or namespace bulk-registration. Same maintainer,
+same author email below, same public source pattern.
 
 Thanks,
 Mukunda Katta
