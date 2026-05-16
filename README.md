@@ -1,5 +1,10 @@
 # bedrock-ops
 
+[![PyPI version](https://img.shields.io/pypi/v/bedrock-ops.svg)](https://pypi.org/project/bedrock-ops/)
+[![Python versions](https://img.shields.io/pypi/pyversions/bedrock-ops.svg)](https://pypi.org/project/bedrock-ops/)
+[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+[![CI](https://github.com/MukundaKatta/bedrock-ops/actions/workflows/test.yml/badge.svg)](https://github.com/MukundaKatta/bedrock-ops/actions/workflows/test.yml)
+
 Production-grade boto3 toolkit for AWS Bedrock. Closes the gaps every team rebuilds when running Bedrock in production.
 
 ```bash

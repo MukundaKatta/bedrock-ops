@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability report
+    url: https://github.com/MukundaKatta/bedrock-ops/security/advisories/new
+    about: Please report security issues privately via GitHub Security Advisories or email mukunda.vjcs6@gmail.com (do not file a public issue).
+  - name: Questions
+    url: https://github.com/MukundaKatta/bedrock-ops/discussions
+    about: Use Discussions for usage questions or design feedback. Issues are for bugs and concrete feature requests.
