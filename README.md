@@ -218,3 +218,13 @@ Issues and PRs welcome at <https://github.com/MukundaKatta/bedrock-ops>. The roa
 ## License
 
 Apache-2.0. See [LICENSE](./LICENSE).
+
+## Repository Health
+
+This repository includes a dependency-free health check for core documentation, metadata, and CI wiring. Run it locally before publishing changes:
+
+```sh
+python3 scripts/check_repository_health.py
+```
+
+The same check runs in GitHub Actions on pushes and pull requests.
