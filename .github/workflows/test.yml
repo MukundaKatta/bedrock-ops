@@ -55,6 +55,9 @@ jobs:
         run: uv build
       - name: Install built wheel into a clean env and import
         run: |
+          # `uv venv` does not seed pip by default; use `uv pip install`
+          # against the venv path instead. This installs the wheel with no
+          # editable links and no project metadata leaking in.
           uv venv /tmp/install-test
-          /tmp/install-test/bin/pip install dist/*.whl
+          uv pip install --python /tmp/install-test/bin/python dist/*.whl
           /tmp/install-test/bin/python -c "from bedrock_ops import BedrockClient, capabilities, TokenUsage, __version__; print('import ok, v', __version__)"
