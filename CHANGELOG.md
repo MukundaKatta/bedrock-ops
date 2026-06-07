@@ -2,6 +2,22 @@
 
 All notable changes to `bedrock-ops` are documented here. Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning follows [SemVer](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+- Dependency-free standard-library `unittest` suite under `tests/stdlib/` that
+  exercises the boto3-free core (token usage and cache-hit-rate math, the
+  capability table and cross-region prefix resolution, the PII-safe guardrail
+  helpers, and the typed-error hierarchy) without installing `boto3`,
+  `botocore`, `pytest`, or the package itself. Run it with
+  `python3 -m unittest discover -s tests/stdlib -t tests/stdlib`.
+- `stdlib tests` GitHub Actions workflow running that suite on Python
+  3.10–3.13, plus a `py_compile` step over all tracked Python files.
+
+### Notes
+- The pytest suite (mocked `boto3`, coverage-gated) remains the canonical test
+  run; the stdlib suite is an additive, install-free smoke test.
+
 ## [0.1.0] — 2026-05-08
 
 Initial release. Closes the highest-pain Bedrock production gaps surfaced from 22 verified GitHub issues across boto3, strands-agents, langchain-aws, pydantic-ai, litellm, llama_index, mem0, and instructor.

@@ -4,6 +4,7 @@
 [![Python versions](https://img.shields.io/pypi/pyversions/bedrock-ops.svg)](https://pypi.org/project/bedrock-ops/)
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![CI](https://github.com/MukundaKatta/bedrock-ops/actions/workflows/test.yml/badge.svg)](https://github.com/MukundaKatta/bedrock-ops/actions/workflows/test.yml)
+[![stdlib tests](https://github.com/MukundaKatta/bedrock-ops/actions/workflows/stdlib-tests.yml/badge.svg)](https://github.com/MukundaKatta/bedrock-ops/actions/workflows/stdlib-tests.yml)
 
 Production-grade boto3 toolkit for AWS Bedrock. Closes the gaps every team rebuilds when running Bedrock in production.
 
@@ -208,6 +209,26 @@ client.converse(modelId=..., messages=clean_messages, ...)
 ## Versioning
 
 `bedrock-ops` follows semantic versioning. The capability table is treated as data, not API: new models added in patch releases. Breaking API changes get a major bump.
+
+## Testing
+
+There are two test suites:
+
+```bash
+# Full suite (mocks boto3, gates coverage at 85%) — the canonical run:
+uv sync --group dev
+uv run pytest
+
+# Dependency-free smoke test of the boto3-free core (no pytest/boto3 install):
+python3 -m unittest discover -s tests/stdlib -t tests/stdlib
+```
+
+The `tests/stdlib/` suite uses only the standard library, so it runs in any
+minimal Python 3.10+ environment without installing `boto3`, `botocore`,
+`pytest`, or the package itself. It exercises the pure logic — token usage and
+cache-hit-rate math, the capability table and cross-region prefix resolution,
+the PII-safe guardrail helpers, and the typed-error hierarchy. It runs across
+Python 3.10–3.13 in the `stdlib tests` workflow on every push and pull request.
 
 ## Contributing
 

@@ -23,12 +23,27 @@ bedrock-ops is a focused production toolkit for AWS Bedrock. Contributions are w
 git clone https://github.com/MukundaKatta/bedrock-ops.git
 cd bedrock-ops
 uv sync --group dev
-uv run pytest                              # 49 tests, ~90% coverage
+uv run pytest                              # full suite, coverage-gated at 85%
 uv run pytest --cov=bedrock_ops --cov-report=term-missing
 uv build                                   # build sdist + wheel
 ```
 
 Python 3.10+ required.
+
+### Dependency-free smoke test
+
+The `tests/stdlib/` suite uses only the Python standard library, so it runs
+without installing `boto3`, `botocore`, `pytest`, or the package itself:
+
+```bash
+python3 -m unittest discover -s tests/stdlib -t tests/stdlib
+```
+
+It covers the boto3-free core (token usage, capability lookup, guardrail
+helpers, error hierarchy) and runs across Python 3.10–3.13 in the `stdlib
+tests` workflow. It is a complement to — not a replacement for — `uv run
+pytest`, which remains the canonical, coverage-gated run. When you change pure
+logic, please keep both suites green.
 
 ## Workflow
 
